@@ -52,7 +52,7 @@ public class FragmentTrain extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.activity_main,
+        View rootView = inflater.inflate(R.layout.frag_train,
                 container, false);
         return rootView;
     }
@@ -65,7 +65,7 @@ public class FragmentTrain extends Fragment {
         vp.setCurrentItem(0);
         pagerAdapter = new ItemAdapter(context.getSupportFragmentManager());
         vp.setAdapter(pagerAdapter);
-        vp.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        vp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
             @Override
             public void onPageSelected(int arg0) {

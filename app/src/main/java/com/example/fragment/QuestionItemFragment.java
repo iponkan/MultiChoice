@@ -39,7 +39,7 @@ public class QuestionItemFragment extends Fragment {
     }
 
     public void setIndex(int index) {
-        questionBean = MainActivity.questionlist.get(index);
+        questionBean = FragmentTrain.questionlist.get(index);
     }
 
     public static Fragment newInstance(int arg0) {

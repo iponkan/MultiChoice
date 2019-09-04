@@ -14,6 +14,8 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener;
@@ -21,7 +23,7 @@ import androidx.viewpager.widget.ViewPager.OnPageChangeListener;
 import com.example.adapter.ItemAdapter;
 import com.example.bean.QuestionBean;
 import com.example.bean.QuestionOptionBean;
-import com.example.fragment.FragmentTrain;
+import com.example.fragment.FragmentResultReport;
 import com.example.iponkan.R;
 import com.example.view.ConfirmDialog;
 
@@ -44,13 +46,18 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
     private TextView tv_answercard;
     private TextView tv_back;
 
+    public void go2ResultReport() {
+        addFragment(R.id.main_layout, FragmentResultReport.newInstance(), FragmentResultReport.TAG);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().requestFeature(Window.FEATURE_NO_TITLE);
 
-        setContentView(R.layout.activity_main);
-        addFragment(R.id.main_layout, new FragmentTrain(), FragmentTrain.TAG);
+        setContentView(R.layout.frag_train);
+        addFragment(R.id.main_layout, FragmentResultReport.newInstance(), FragmentResultReport.TAG);
+//        addFragment(R.id.main_layout, FragmentTrain.newInstance(), FragmentTrain.TAG);
 
         loadData();
 
@@ -297,6 +304,20 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
                     .add(viewid, fragment, tag).commitAllowingStateLoss();
         } else {
             getSupportFragmentManager().beginTransaction().show(fragment).commitAllowingStateLoss();
+        }
+    }
+
+    public void replaceFragment(int viewid, Fragment fragment, String tag) {
+        try {
+            FragmentManager manager = getSupportFragmentManager();
+            FragmentTransaction transaction = manager.beginTransaction();
+//            transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
+            transaction.addToBackStack(null);//加入返回
+            transaction.replace(viewid, fragment, tag);
+            transaction.commitAllowingStateLoss();
+            manager.executePendingTransactions();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
