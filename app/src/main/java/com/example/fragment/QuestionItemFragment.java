@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.LocalBroadcastManager;
+import androidx.fragment.app.Fragment;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
@@ -25,12 +25,6 @@ import com.example.adapter.OptionsListAdapter;
 import com.example.bean.QuestionBean;
 import com.example.listmultichoise.R;
 import com.example.view.NoScrollListview;
-
-/**
- * @author hzc
- * @version 1.0
- * @date 2015-6-24
- */
 
 public class QuestionItemFragment extends Fragment {
     QuestionBean questionBean;

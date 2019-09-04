@@ -17,7 +17,7 @@ public class ConfirmDialog extends Dialog {
 
     public interface ClickListenerInterface {
 
-        public void doProceed();
+        void doProceed();
     }
 
     public ConfirmDialog(Context context, String content) {
@@ -39,19 +39,12 @@ public class ConfirmDialog extends Dialog {
         View view = inflater.inflate(R.layout.timer_pause_dialog, null);
         setContentView(view);
 
-        TextView tv_timer_dialog_title = (TextView) view.findViewById(R.id.tv_timer_dialog_title);
         TextView tv_timer_dialog_content = (TextView) view.findViewById(R.id.tv_timer_dialog_content);
         TextView btn_timer_dialog_proceed = (TextView) view.findViewById(R.id.btn_timer_dialog_proceed);
 
         tv_timer_dialog_content.setText(content);
 
         btn_timer_dialog_proceed.setOnClickListener(new clickListener());
-
-//         Window dialogWindow = getWindow();
-//         WindowManager.LayoutParams lp = dialogWindow.getAttributes();
-//         DisplayMetrics d = context.getResources().getDisplayMetrics(); // 获取屏幕宽、高用
-//         lp.height = (int) (d.widthPixels * 0.25); // 高度设置为屏幕的0.6
-//         dialogWindow.setAttributes(lp);
     }
 
     public void setClicklistener(ClickListenerInterface clickListenerInterface) {
