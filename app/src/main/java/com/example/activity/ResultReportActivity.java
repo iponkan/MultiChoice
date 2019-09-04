@@ -3,8 +3,6 @@ package com.example.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.fragment.app.FragmentActivity;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +13,9 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.fragment.app.FragmentActivity;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.example.listmultichoise.R;
 
@@ -32,10 +33,9 @@ public class ResultReportActivity extends FragmentActivity {
 
         initData();
         mLocalBroadcastManager = LocalBroadcastManager.getInstance(this);
-        GridView gv = (GridView) findViewById(R.id.report_gv);
-        TextView tv_report_total_question = (TextView) findViewById(R.id.tv_report_total_question);
-        TextView tv_report_exam_type = (TextView) findViewById(R.id.tv_report_exam_type);
-        RelativeLayout rl_result_panel = (RelativeLayout) findViewById(R.id.rl_result_panel);
+        GridView gv = findViewById(R.id.report_gv);
+        TextView tv_report_total_question = findViewById(R.id.tv_report_total_question);
+        RelativeLayout rl_result_panel = findViewById(R.id.rl_result_panel);
         //设置scrollview 自动置顶
         rl_result_panel.setFocusable(true);
         rl_result_panel.setFocusableInTouchMode(true);

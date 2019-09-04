@@ -1,11 +1,8 @@
 package com.example.fragment;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
@@ -20,6 +17,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.fragment.app.Fragment;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+
 import com.example.activity.MainActivity;
 import com.example.adapter.OptionsListAdapter;
 import com.example.bean.QuestionBean;
@@ -27,8 +27,8 @@ import com.example.listmultichoise.R;
 import com.example.view.NoScrollListview;
 
 public class QuestionItemFragment extends Fragment {
-    QuestionBean questionBean;
-    int index;
+    private QuestionBean questionBean;
+    private int index;
     private OptionsListAdapter adapter;
     private StringBuffer sb;
     private NoScrollListview lv;
@@ -54,12 +54,12 @@ public class QuestionItemFragment extends Fragment {
         mLocalBroadcastManager = LocalBroadcastManager.getInstance(getActivity());
         View rootView = inflater.inflate(R.layout.pager_item,
                 container, false);
-        lv = (NoScrollListview) rootView.findViewById(R.id.lv_options);
-        TextView tv_paper_name = (TextView) rootView.findViewById(R.id.tv_paper_name);
-        TextView tv_sequence = (TextView) rootView.findViewById(R.id.tv_sequence);
-        TextView tv_total_count = (TextView) rootView.findViewById(R.id.tv_total_count);
-        TextView tv_description = (TextView) rootView.findViewById(R.id.tv_description);
-        Button btn_submit = (Button) rootView.findViewById(R.id.btn_submit);
+        lv = rootView.findViewById(R.id.lv_options);
+        TextView tv_paper_name = rootView.findViewById(R.id.tv_paper_name);
+        TextView tv_sequence = rootView.findViewById(R.id.tv_sequence);
+        TextView tv_total_count = rootView.findViewById(R.id.tv_total_count);
+        TextView tv_description = rootView.findViewById(R.id.tv_description);
+        Button btn_submit = rootView.findViewById(R.id.btn_submit);
         adapter = new OptionsListAdapter(getActivity(), questionBean.getQuestionOptions(), lv, index);
         lv.setAdapter(adapter);
         //TODO 展开listvie所有子条目使用了自定义Listview，下面的方法有问题
@@ -132,10 +132,5 @@ public class QuestionItemFragment extends Fragment {
         }
 
         return rootView;
-    }
-
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
     }
 }

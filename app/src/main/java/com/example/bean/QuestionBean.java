@@ -2,7 +2,7 @@ package com.example.bean;
 
 import java.util.List;
 
-public class QuestionBean extends BaseBean {
+public class QuestionBean {
 
     // 1�?题目ID：questionId
     // 2�?题目描述：description

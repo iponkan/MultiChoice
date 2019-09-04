@@ -59,8 +59,8 @@ public class OptionsListAdapter extends BaseAdapter {
 
         View view = LayoutInflater.from(mContext).inflate(
                 R.layout.list_item_option, null);
-        CheckedTextView ctv = (CheckedTextView) view.findViewById(R.id.ctv_name);
-        TextView option = (TextView) view.findViewById(R.id.tv_option);
+        CheckedTextView ctv = view.findViewById(R.id.ctv_name);
+        TextView option = view.findViewById(R.id.tv_option);
 
         ctv.setText(options.get(position).getName());
         option.setText(options.get(position).getDescription());

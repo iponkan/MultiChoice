@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +14,9 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.example.activity.MainActivity;
 import com.example.activity.ResultReportActivity;
@@ -39,8 +40,8 @@ public class ScantronItemFragment extends Fragment {
         mLocalBroadcastManager = LocalBroadcastManager.getInstance(getActivity());
         View rootView = inflater.inflate(R.layout.pager_item_scantron,
                 container, false);
-        NoScrollGridView gv = (NoScrollGridView) rootView.findViewById(R.id.gridview);
-        TextView tv_submit_result = (TextView) rootView.findViewById(R.id.tv_submit_result);
+        NoScrollGridView gv = rootView.findViewById(R.id.gridview);
+        TextView tv_submit_result = rootView.findViewById(R.id.tv_submit_result);
         tv_submit_result.setOnClickListener(new OnClickListener() {
 
             @Override
