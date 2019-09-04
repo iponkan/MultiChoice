@@ -17,7 +17,7 @@ import android.widget.TextView;
 import androidx.fragment.app.FragmentActivity;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
-import com.example.listmultichoise.R;
+import com.example.iponkan.R;
 
 public class ResultReportActivity extends FragmentActivity {
     LocalBroadcastManager mLocalBroadcastManager;

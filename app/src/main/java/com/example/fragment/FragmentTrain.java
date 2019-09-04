@@ -16,7 +16,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.adapter.ItemAdapter;
 import com.example.bean.QuestionBean;
 import com.example.bean.QuestionOptionBean;
-import com.example.listmultichoise.R;
+import com.example.iponkan.R;
 
 import java.util.ArrayList;
 import java.util.List;

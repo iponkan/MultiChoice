@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.listmultichoise.R;
+import com.example.iponkan.R;
 
 public class ConfirmDialog extends Dialog {
 

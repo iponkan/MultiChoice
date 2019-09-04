@@ -20,7 +20,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.example.activity.MainActivity;
 import com.example.activity.ResultReportActivity;
-import com.example.listmultichoise.R;
+import com.example.iponkan.R;
 import com.example.view.NoScrollGridView;
 
 public class ScantronItemFragment extends Fragment {

@@ -6,23 +6,23 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
-
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-import androidx.viewpager.widget.ViewPager;
-import androidx.viewpager.widget.ViewPager.OnPageChangeListener;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager.widget.ViewPager.OnPageChangeListener;
+
 import com.example.adapter.ItemAdapter;
 import com.example.bean.QuestionBean;
 import com.example.bean.QuestionOptionBean;
 import com.example.fragment.FragmentTrain;
-import com.example.listmultichoise.R;
+import com.example.iponkan.R;
 import com.example.view.ConfirmDialog;
 
 import java.util.ArrayList;
