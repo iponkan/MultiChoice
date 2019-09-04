@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
+
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.viewpager.widget.ViewPager;
@@ -19,6 +21,7 @@ import android.widget.TextView;
 import com.example.adapter.ItemAdapter;
 import com.example.bean.QuestionBean;
 import com.example.bean.QuestionOptionBean;
+import com.example.fragment.FragmentTrain;
 import com.example.listmultichoise.R;
 import com.example.view.ConfirmDialog;
 
@@ -47,6 +50,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         getWindow().requestFeature(Window.FEATURE_NO_TITLE);
 
         setContentView(R.layout.activity_main);
+        addFragment(R.id.main_layout, new FragmentTrain(), FragmentTrain.TAG);
+
         loadData();
 
         Log.e("测试数据", questionlist.get(0).toString());
@@ -277,5 +282,21 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         LocalBroadcastManager.getInstance(this).unregisterReceiver(
                 mMessageReceiver);
         super.onDestroy();
+    }
+
+    /**
+     * 增加一个Fragment
+     *
+     * @param viewid
+     * @param fragment
+     * @param tag
+     */
+    public void addFragment(int viewid, Fragment fragment, String tag) {
+        if (!fragment.isAdded()) {
+            getSupportFragmentManager().beginTransaction()
+                    .add(viewid, fragment, tag).commitAllowingStateLoss();
+        } else {
+            getSupportFragmentManager().beginTransaction().show(fragment).commitAllowingStateLoss();
+        }
     }
 }
